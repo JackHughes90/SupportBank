@@ -1,4 +1,12 @@
-﻿namespace SupportBank
+﻿using System;
+using CsvHelper;
+using System.IO;
+using System.Globalization;
+using System.Linq;
+using CsvHelper.Configuration;
+using CsvHelper.Configuration.Attributes;
+
+namespace SupportBank
 {
     class Program
     {
@@ -6,10 +14,8 @@
         {
             Console.WriteLine("Welcome to SupportBank, making people pay up since 2022!");
             Console.WriteLine("========================================================");
-            FileReader cvsReader = new FileReader();
-
-            FileReader.ReadFile();
-
+            Ledger ledger = new Ledger();
+            Ledger.PersonList();
         }
     }
 }
