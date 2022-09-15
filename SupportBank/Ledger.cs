@@ -21,22 +21,39 @@ namespace SupportBank
                     transactionList = csvReader.GetRecords<Transaction>().ToList();
                 }
             }
-        }
-        public static List<Person> PersonList()
-        {
+
             HashSet<string> tempList = new HashSet<string>();
             foreach (var transaction in transactionList)
             {
                 tempList.Add(transaction.To);
                 tempList.Add(transaction.From);
             }
-            List<Person> personList = new List<Person>();
+            List<Person> PersonList = new List<Person>();
             foreach (var person in tempList)
             {
                 Person peerson = new Person(person);
-                personList.Add(new Person(person));
+                PersonList.Add(new Person(person));
             }
-            return personList;
+            personList = PersonList;
+        }
+
+        public double CalculateDebt(string name)
+        {
+            double owes = 0;
+            double owed = 0;
+            foreach (var transaction in transactionList)
+            {
+                if (transaction.From == name)
+                {
+                    owes += transaction.Amount;
+                }
+                if (transaction.To == name)
+                {
+                    owed += transaction.Amount;
+                }
+            }
+            double debt = owed - owes;
+            return debt;
         }
     }
 }

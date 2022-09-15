@@ -15,7 +15,8 @@ namespace SupportBank
             Console.WriteLine("Welcome to SupportBank, making people pay up since 2022!");
             Console.WriteLine("========================================================");
             Ledger ledger = new Ledger();
-            Ledger.PersonList();
+            Console.WriteLine(Ledger.personList[0].Name);
+            Console.WriteLine(ledger.CalculateDebt("Sarah T"));
         }
     }
 }
