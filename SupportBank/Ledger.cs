@@ -11,6 +11,7 @@ namespace SupportBank
     class Ledger
     {
         public static List<Transaction> transactionList { get; set; }
+        public static List<Person> personList { get; set; }
         public Ledger()
         {
             using (var streamReader = new StreamReader(@"Transactions2014.csv"))
@@ -21,13 +22,19 @@ namespace SupportBank
                 }
             }
         }
-        public static HashSet<string> PersonList()
+        public static List<Person> PersonList()
         {
-            HashSet<string> personList = new HashSet<string>();
+            HashSet<string> tempList = new HashSet<string>();
             foreach (var transaction in transactionList)
             {
-                personList.Add(transaction.To);
-                personList.Add(transaction.From);
+                tempList.Add(transaction.To);
+                tempList.Add(transaction.From);
+            }
+            List<Person> personList = new List<Person>();
+            foreach (var person in tempList)
+            {
+                Person peerson = new Person(person);
+                personList.Add(new Person(person));
             }
             return personList;
         }
