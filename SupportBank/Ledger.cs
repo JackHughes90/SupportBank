@@ -55,5 +55,13 @@ namespace SupportBank
             double debt = owed - owes;
             return debt;
         }
+
+        public void PrintAllBalances()
+        {
+            foreach (var person in personList)
+            {
+                Console.WriteLine(person.Name + " owes " + CalculateDebt(person.Name));
+            }
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace SupportBank
             Ledger ledger = new Ledger();
             Console.WriteLine(Ledger.personList[0].Name);
             Console.WriteLine(ledger.CalculateDebt("Sarah T"));
+            ledger.PrintAllBalances();
         }
     }
 }
