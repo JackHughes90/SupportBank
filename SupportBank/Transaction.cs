@@ -19,6 +19,6 @@ namespace SupportBank
         [Name("Narrative")]
         public string Narrative { get; set; }
         [Name("Amount")]
-        public double Amount { get; set; }
+        public decimal Amount { get; set; }
     }
 }

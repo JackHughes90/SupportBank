@@ -18,7 +18,24 @@ namespace SupportBank
             {
                 using (var csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
                 {
+                    // csvReader.Configuration.IgnoreReadingExceptions = true;
+                    // csvReader.Configuration.ReadingExceptionCallback = (ex, row) =>
+                    // {
+
+                    //     Do something with the exception and row data.
+                    //     You can look at the exception data here too.
+                    // };
+                    // while (csvReader.Read())
+                    // {
+                    //     try
+                    //     {
                     transactionList = csvReader.GetRecords<Transaction>().ToList();
+                    //     }
+                    //     catch (CsvHelper.TypeConversion.TypeConverterException ex)
+                    //     {
+                    //         Console.WriteLine(ex + "********************************");
+                    //     }
+                    // }
                 }
             }
 
@@ -37,10 +54,10 @@ namespace SupportBank
             personList = PersonList;
         }
 
-        public double CalculateDebt(string name)
+        public decimal CalculateDebt(string name)
         {
-            double owes = 0;
-            double owed = 0;
+            decimal owes = 0;
+            decimal owed = 0;
             foreach (var transaction in transactionList)
             {
                 if (transaction.From == name)
@@ -52,15 +69,59 @@ namespace SupportBank
                     owed += transaction.Amount;
                 }
             }
-            double debt = owed - owes;
+            decimal debt = owed - owes;
             return debt;
         }
-
+        public void IndividualAccount(string name)
+        {
+            Console.WriteLine();
+            Console.WriteLine("The ledger for " + name + ":");
+            Console.WriteLine();
+            foreach (var person in personList)
+            {
+                if (person.Name != name)
+                {
+                    decimal owes = 0;
+                    decimal owed = 0;
+                    foreach (var transaction in transactionList)
+                    {
+                        if (transaction.From == name && transaction.To == person.Name)
+                        {
+                            owes += transaction.Amount;
+                        }
+                        if (transaction.To == name && transaction.From == person.Name)
+                        {
+                            owed += transaction.Amount;
+                        }
+                    }
+                    decimal debt = owed - owes;
+                    if (debt < 0)
+                    {
+                        Console.WriteLine(name + " is owed £" + (0 - debt) + " by " + person.Name);
+                    }
+                    if (debt > 0)
+                    {
+                        Console.WriteLine(name + " owes " + person.Name + " £" + debt);
+                    }
+                    if (debt == 0)
+                    {
+                        Console.WriteLine(name + " and " + person.Name + " are all square!");
+                    }
+                }
+            }
+        }
         public void PrintAllBalances()
         {
             foreach (var person in personList)
             {
-                Console.WriteLine(person.Name + " owes " + CalculateDebt(person.Name));
+                if (CalculateDebt(person.Name) < 0)
+                {
+                    Console.WriteLine(person.Name + " is owed £" + (0 - CalculateDebt(person.Name)));
+                }
+                else
+                {
+                    Console.WriteLine(person.Name + " owes £" + CalculateDebt(person.Name));
+                }
             }
         }
     }
