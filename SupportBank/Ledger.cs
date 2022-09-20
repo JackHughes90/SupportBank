@@ -35,10 +35,24 @@ namespace SupportBank
                         catch (CsvHelper.TypeConversion.TypeConverterException ex)
                         {
                             Logger.Error(ex);
+                            Console.WriteLine("There is a problem in your file! See Row " + ex.Context.Parser.Row + " in the " + csvReader.HeaderRecord[csvReader.CurrentIndex] + " column");
+                            Console.WriteLine("Would you like to continue? (Y) / (N)");
+                            string option = Console.ReadLine();
+                            if (option.ToUpper() == "N")
+                            {
+                                throw;
+                            }
                         }
                         catch (CsvHelper.ReaderException ex)
                         {
                             Logger.Error(ex);
+                            Console.WriteLine("There is a problem in your file! See Row " + ex.Context.Parser.Row + " in the " + csvReader.HeaderRecord[csvReader.CurrentIndex] + " column");
+                            Console.WriteLine("Would you like to continue? (Y) / (N)");
+                            string option = Console.ReadLine();
+                            if (option.ToUpper() == "N")
+                            {
+                                throw;
+                            }
                         }
                     }
                 }
