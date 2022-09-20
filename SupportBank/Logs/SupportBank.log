@@ -1,0 +1,167 @@
+2022-09-20 11:08:35.4145 Error - SupportBank.Ledger: CsvHelper.TypeConversion.TypeConverterException: The conversion cannot be performed.
+    Text: 'One Cheeseburger'
+    MemberType: System.Decimal
+    TypeConverter: 'CsvHelper.TypeConversion.DecimalConverter'
+IReader state:
+   ColumnCount: 0
+   CurrentIndex: 4
+   HeaderRecord:
+["Date","From","To","Narrative","Amount"]
+IParser state:
+   ByteCount: 0
+   CharCount: 1224
+   Row: 28
+   RawRow: 28
+   Count: 5
+   RawRecord:
+01/03/2015,Ben B,Sam N,Lunch,One Cheeseburger
+
+
+2022-09-20 11:17:07.0355 Error - SupportBank.Ledger: CsvHelper.TypeConversion.TypeConverterException: The conversion cannot be performed.
+    Text: 'One Cheeseburger'
+    MemberType: System.Decimal
+    TypeConverter: 'CsvHelper.TypeConversion.DecimalConverter'
+IReader state:
+   ColumnCount: 0
+   CurrentIndex: 4
+   HeaderRecord:
+["Date","From","To","Narrative","Amount"]
+IParser state:
+   ByteCount: 0
+   CharCount: 1224
+   Row: 28
+   RawRow: 28
+   Count: 5
+   RawRecord:
+01/03/2015,Ben B,Sam N,Lunch,One Cheeseburger
+
+
+2022-09-20 11:18:52.9529 Error - SupportBank.Ledger: CsvHelper.TypeConversion.TypeConverterException: The conversion cannot be performed.
+    Text: 'One Cheeseburger'
+    MemberType: System.Decimal
+    TypeConverter: 'CsvHelper.TypeConversion.DecimalConverter'
+IReader state:
+   ColumnCount: 0
+   CurrentIndex: 4
+   HeaderRecord:
+["Date","From","To","Narrative","Amount"]
+IParser state:
+   ByteCount: 0
+   CharCount: 1224
+   Row: 28
+   RawRow: 28
+   Count: 5
+   RawRecord:
+01/03/2015,Ben B,Sam N,Lunch,One Cheeseburger
+
+
+2022-09-20 11:38:00.7807 Error - SupportBank.Ledger: CsvHelper.TypeConversion.TypeConverterException: The conversion cannot be performed.
+    Text: 'One Cheeseburger'
+    MemberType: System.Decimal
+    TypeConverter: 'CsvHelper.TypeConversion.DecimalConverter'
+IReader state:
+   ColumnCount: 0
+   CurrentIndex: 4
+   HeaderRecord:
+["Date","From","To","Narrative","Amount"]
+IParser state:
+   ByteCount: 0
+   CharCount: 1224
+   Row: 28
+   RawRow: 28
+   Count: 5
+   RawRecord:
+01/03/2015,Ben B,Sam N,Lunch,One Cheeseburger
+
+
+2022-09-20 11:43:37.5835 Error - SupportBank.Ledger: CsvHelper.TypeConversion.TypeConverterException: The conversion cannot be performed.
+    Text: 'One Cheeseburger'
+    MemberType: System.Decimal
+    TypeConverter: 'CsvHelper.TypeConversion.DecimalConverter'
+IReader state:
+   ColumnCount: 0
+   CurrentIndex: 4
+   HeaderRecord:
+["Date","From","To","Narrative","Amount"]
+IParser state:
+   ByteCount: 0
+   CharCount: 1224
+   Row: 28
+   RawRow: 28
+   Count: 5
+   RawRecord:
+01/03/2015,Ben B,Sam N,Lunch,One Cheeseburger
+
+
+2022-09-20 11:51:02.6289 Error - SupportBank.Ledger: CsvHelper.TypeConversion.TypeConverterException: The conversion cannot be performed.
+    Text: 'One Cheeseburger'
+    MemberType: System.Decimal
+    TypeConverter: 'CsvHelper.TypeConversion.DecimalConverter'
+IReader state:
+   ColumnCount: 0
+   CurrentIndex: 4
+   HeaderRecord:
+["Date","From","To","Narrative","Amount"]
+IParser state:
+   ByteCount: 0
+   CharCount: 1224
+   Row: 28
+   RawRow: 28
+   Count: 5
+   RawRecord:
+01/03/2015,Ben B,Sam N,Lunch,One Cheeseburger
+
+
+2022-09-20 12:00:36.8338 Error - SupportBank.Ledger: CsvHelper.TypeConversion.TypeConverterException: The conversion cannot be performed.
+    Text: 'One Cheeseburger'
+    MemberType: System.Decimal
+    TypeConverter: 'CsvHelper.TypeConversion.DecimalConverter'
+IReader state:
+   ColumnCount: 0
+   CurrentIndex: 4
+   HeaderRecord:
+["Date","From","To","Narrative","Amount"]
+IParser state:
+   ByteCount: 0
+   CharCount: 1224
+   Row: 28
+   RawRow: 28
+   Count: 5
+   RawRecord:
+01/03/2015,Ben B,Sam N,Lunch,One Cheeseburger
+
+
+2022-09-20 12:02:25.6553 Error - SupportBank.Ledger: CsvHelper.TypeConversion.TypeConverterException: The conversion cannot be performed.
+    Text: 'One Cheeseburger'
+    MemberType: System.Decimal
+    TypeConverter: 'CsvHelper.TypeConversion.DecimalConverter'
+IReader state:
+   ColumnCount: 0
+   CurrentIndex: 4
+   HeaderRecord:
+["Date","From","To","Narrative","Amount"]
+IParser state:
+   ByteCount: 0
+   CharCount: 1224
+   Row: 28
+   RawRow: 28
+   Count: 5
+   RawRecord:
+01/03/2015,Ben B,Sam N,Lunch,One Cheeseburger
+
+
+2022-09-20 12:02:25.6826 Error - SupportBank.Ledger: CsvHelper.ReaderException: An unexpected error occurred.
+IReader state:
+   ColumnCount: 0
+   CurrentIndex: 0
+   HeaderRecord:
+["Date","From","To","Narrative","Amount"]
+IParser state:
+   ByteCount: 0
+   CharCount: 2369
+   Row: 52
+   RawRow: 52
+   Count: 5
+   RawRecord:
+Last Thursday,Sarah T,Dan W,Beers,5.42
+

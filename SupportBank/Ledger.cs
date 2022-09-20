@@ -5,39 +5,45 @@ using System.Globalization;
 using System.Linq;
 using CsvHelper.Configuration;
 using CsvHelper.Configuration.Attributes;
+using NLog;
+using NLog.Config;
+using NLog.Targets;
 
 namespace SupportBank
 {
     class Ledger
     {
-        public static List<Transaction> transactionList { get; set; }
-        public static List<Person> personList { get; set; }
+        private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
+        public List<Transaction> transactionList { get; set; }
+        public List<Person> personList { get; set; }
         public Ledger()
         {
-            using (var streamReader = new StreamReader(@"Transactions2014.csv"))
+            transactionList = new List<Transaction>();
+            using (var streamReader = new StreamReader(@"DodgyTransactions2015.csv"))
             {
-                using (var csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
+                using (var csvReader = new CsvReader(streamReader, new CultureInfo("en-GB")))
                 {
-                    // csvReader.Configuration.IgnoreReadingExceptions = true;
-                    // csvReader.Configuration.ReadingExceptionCallback = (ex, row) =>
-                    // {
-
-                    //     Do something with the exception and row data.
-                    //     You can look at the exception data here too.
-                    // };
-                    // while (csvReader.Read())
-                    // {
-                    //     try
-                    //     {
-                    transactionList = csvReader.GetRecords<Transaction>().ToList();
-                    //     }
-                    //     catch (CsvHelper.TypeConversion.TypeConverterException ex)
-                    //     {
-                    //         Console.WriteLine(ex + "********************************");
-                    //     }
-                    // }
+                    csvReader.Read();
+                    csvReader.ReadHeader();
+                    while (csvReader.Read())
+                    {
+                        try
+                        {
+                            Transaction transaction = csvReader.GetRecord<Transaction>();
+                            transactionList.Add(transaction);
+                        }
+                        catch (CsvHelper.TypeConversion.TypeConverterException ex)
+                        {
+                            Logger.Error(ex);
+                        }
+                        catch (CsvHelper.ReaderException ex)
+                        {
+                            Logger.Error(ex);
+                        }
+                    }
                 }
             }
+
 
             HashSet<string> tempList = new HashSet<string>();
             foreach (var transaction in transactionList)

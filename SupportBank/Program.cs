@@ -5,13 +5,25 @@ using System.Globalization;
 using System.Linq;
 using CsvHelper.Configuration;
 using CsvHelper.Configuration.Attributes;
+using NLog;
+using NLog.Config;
+using NLog.Targets;
 
 namespace SupportBank
 {
     class Program
     {
+        private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
         static void Main(string[] args)
         {
+            var config = new LoggingConfiguration();
+            var target = new FileTarget { FileName = @"C:\Users\jachug\Documents\12.SupportBank\SupportBank\Logs\SupportBank.log", Layout = @"${longdate} ${level} - ${logger}: ${message}" };
+            config.AddTarget("File Logger", target);
+            config.LoggingRules.Add(new LoggingRule("*", LogLevel.Debug, target));
+            LogManager.Configuration = config;
+
+            
+
             Console.WriteLine("++++Welcome to SupportBank, making people pay up since 2022!++++");
             Console.WriteLine("================================================================");
             Console.WriteLine();
