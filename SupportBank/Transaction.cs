@@ -11,7 +11,7 @@ namespace SupportBank
     public class Transaction
     {
         [Name("Date")]
-        public DateTime Date { get; set; }
+        public DateOnly Date { get; set; }
         [Name("From")]
         public string From { get; set; }
         [Name("To")]

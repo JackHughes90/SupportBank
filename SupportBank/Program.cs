@@ -14,7 +14,7 @@ namespace SupportBank
     class Program
     {
         private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
-        public void Run(Ledger ledger)
+        public static void Run(Ledger ledger)
         {
             while (true)
                 {
@@ -50,8 +50,6 @@ namespace SupportBank
             config.LoggingRules.Add(new LoggingRule("*", LogLevel.Debug, target));
             LogManager.Configuration = config;
 
-
-
             Console.WriteLine("++++Welcome to SupportBank, making people pay up since 2022!++++");
             Console.WriteLine("================================================================");
             Console.WriteLine();
@@ -59,7 +57,7 @@ namespace SupportBank
 
             if (ledger.ErrorList.Count() == 0)
             {
-                Program.Run(ledger);
+                Run(ledger);
             }
             else
             {
@@ -71,15 +69,9 @@ namespace SupportBank
                 string option = Console.ReadLine();
                 if (option.ToUpper() == "Y")
                 {
-                    Program.Run(ledger);
+                    Run(ledger);
                 }
             }
-
-
         }
     }
 }
-
-// Console.WriteLine(Ledger.personList[0].Name);
-// Console.WriteLine(ledger.CalculateDebt("Sarah T"));
-
